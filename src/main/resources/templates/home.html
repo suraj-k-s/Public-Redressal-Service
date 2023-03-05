@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">       
+        <meta charset="utf-8" />
+        <title>Department of Public Grievances, Government of India</title>
+        <link rel="stylesheet" media="all" href="/css/styles.css" th:href="@{/css/styles.css}" type="text/css"/>
+        <link rel="stylesheet" media="all" href="/css/dark.css" th:href="@{/css/dark.css}" type="text/css"/>
+        <!-- Main CSS-->
+        <link href="/css/main.css" th:href="@{css/main.css}"rel="stylesheet" media="all">
+        <link rel="stylesheet" href="css/captcha.css" th:href="@{css/captcha.css}">
+ </head>
+         <nav class="navbar navbar-expand-lg navbar-dark" style="height: 25px; background-color:rgb(52, 76, 127);">
+            <div class="container fluid">
+                <h6 style="color: white;font-size: small;"> Government of India | Ministry of Personnel, Public Grievances</h6>
+               &nbsp;&nbsp;&nbsp;
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact us</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/}">About</a></li> 
+                    </ul>
+                </div>
+            </div>
+         </nav>
+         
+         &nbsp; &nbsp; &nbsp; &nbsp;<a href="/"><img src="images/banner.png"  height="80" width="500"  th:src="@{images/banner.png}" /></a>
+         
+
+         <img class="d-block w-100" src="images/baner-cpgrams_4.jpg" style="height: 220px;" alt="First slide">
+         
+         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(0, 51, 102);">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" th:href="@{/}">Home</a></li>
+              <li class="nav-item"><a aria-current="page" class="nav-link " th:href="@{/index}">Lodge Grievance</a></li>
+              <li class="nav-item"><a class="nav-link" href="#!"th:href="@{/track}">Track Grievance</a></li>
+              <li class="nav-item"><a class="nav-link" href="#!"th:href="@{/contact}">Contact us</a></li>
+              <li class="nav-item"><a class="nav-link" th:href="@{/login}">Sign in</a></li>
+            </div>
+          </div>
+        </nav>        
+        <br>
+        <body>
+         
+        
+          <label id="dark-change">
+            
+          </label>
+          
+  <br>
+  <br>
+        <!-- Page Content-->  
+        <br>    
+    
+     <div class="container" >
+    	<div class="row">  
+          <div class="col col-12 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+
+           <div class="col col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5" >
+            <p style="font-size: 15;"><b><i>PUBLIC GRIEVANCE</i></b></p>
+                <p style="text-align: justify;">
+                Public Grievance Portal is an online platform available to the citizens 
+                regarding to the Department of Public Grievances. <br> 
+                Redressing the citizen's grievances, is one of the most important initiatives 
+                of the department the website to lodge their grievances to the public authorities
+                on any subject related to service delivery. The citizens can enter all the mandatory 
+                details in the form provided in the Lodge Grievance page and submit the form.Citizens can 
+                attach any document that support their matter. All the details should be correct 
+                and it must me confirmed before submitting the form. The visitors are also 
+                required to enter the captch for security reasons. After the successfull submission
+                the applicant can track the grievance using the provided in the mail. Feel free to 
+                add the feedback in the feedback page. The contact information is also provided.</p>
+           </div>
+           <br>
+          <div class="col col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+            <p>
+              The status of the grievance filed in CPGRAMS can be tracked with the unique registration ID.<br>
+              <span style="color: darkred;"> The following matters will not be considered :</span><br>
+              -> Personal matters <br>
+              -> Matters that offend the governement or any other Department 
+                  in any way. <br>
+              -> No suggestion are accepted<br>
+              -> Fake documents<br>
+            </p>
+          </div>
+     
+            <!-- <div class="col col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+              
+                <div class="card" style="width: 18rem;">
+                <p><b> WHAT'S NEW ?! </b></p>
+                  <div class="card-body">
+                    <h5 class="card-title">National Portal</h5>
+                    <p class="card-text">Go to National portal for checking out more websites</p>
+                    <a href="https://www.india.gov.in/" target="_blank" class="btn btn-primary btn-radius-1">click here</a>
+                  </div>
+                </div>
+                
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Digital India</h5>
+                    <p class="card-text">Know more about Digital India </p>
+                    <a  href="https://digitalindia.gov.in/" target="_blank" class="btn btn-primary btn-radius-1">Click here</a>
+                  </div>
+                </div>
+                
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Check out</h5>
+                    <p class="card-text">Tribute to Gandhi from the nation</p>
+                    <a href="https://gandhi.gov.in/" target="_blank" class="btn btn-primary btn-radius-1">Click here</a>
+                  </div>
+                </div>
+            </div> -->
+        </div> 
+    </div> 
+    </div>   
+       <br>
+      
+      <script src="script.js" th:src="@{js/script.js}"></script>
+      <script src="preview.js" th:src="@{js/preview.js}"></script>
+
+      </div>
+
+        <!-- Footer-->
+           <div class="container-fluid">
+                 <div class = "row" style="background-color:rgb(0, 51, 102);height: 100px;">
+                          <center>
+                            &nbsp;  <a href="https://gandhi.gov.in/" target="_blank"><img src="images/gandhi.jfif" width="150" height="50"  th:src="@{images/gandhi.jfif}" style="padding-top: 8px;" /></a>
+                            &nbsp;  <a href="https://digitalindia.gov.in/" target="_blank"><img src="images/dig.png" width="150" height="50"  th:src="@{images/dig.png}" style="padding-top: 8px;" /></a>
+                            &nbsp;  <a href="https://www.nic.in/" target="_blank"><img src="images/nic.png" width="150" height="50"  th:src="@{images/nic.png}" style="padding-top: 8px;" /></a>
+                            &nbsp;  <a href="https://www.india.gov.in/" target="_blank"><img src="https://www.india.gov.in/sites/all/themes/adaptivetheme/npi_adaptive/images/linktousbanner/banner4.jpg" width="150" height="50" th:src="@{https://www.india.gov.in/sites/all/themes/adaptivetheme/npi_adaptive/images/linktousbanner/banner4.jpg}" style="padding-top: 8px;"/></a>
+                          </center>
+               </div>
+                  <div class = "row" style="background-color:rgb(0, 51, 102)">
+                    <center><p style="font-size: small;color:white;">This site is designed and developed by National Informatics Centre, Government of India and owned by Department of Public Grievances.</p></center>
+                  </div>
+                  <div class = "row" style="background-color:rgb(0, 77, 153);">
+                    <center><p style="font-size:10px;color:white;">Disclaimer | Version Copyright © 2022 </p></center>
+                 </div>
+            </div>
+                
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Core theme JS-->
+        <script type="text/javascript" src="js/scripts.js" th:src="@{/js/scripts.js}"></script>
+
+        <script>
+          var content = document.getElementsByTagName('body')[0];
+          var darkMode = document.getElementById('dark-change');
+          darkMode.addEventListener('click', function(){
+              darkMode.classList.toggle('active');
+              content.classList.toggle('night');
+          })
+      </script>
+
+ </body>
+</html>

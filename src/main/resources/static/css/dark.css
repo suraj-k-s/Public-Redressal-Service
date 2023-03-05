@@ -1,0 +1,36 @@
+label{
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    right: 20px;
+    top: 30px;
+    border: 2px solid;
+    border-radius: 12px;
+}
+
+label:before{
+    position: absolute;
+    content: '';
+    width:20px;
+    height: 20px;
+    left: 1px;
+    top: 1px;
+    border-radius: 50%;
+    background: #01121b;
+    cursor: pointer;
+    transition: 0.4s;
+}
+label.active:before{
+    left: 24px;
+    background: #fff;
+}
+body.night{
+    background: #041017;
+    color: #fff;
+}
+@media screen and (min-width:900px) {
+  .respon{
+    display: block;
+  }
+ 
+}

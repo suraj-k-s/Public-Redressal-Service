@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"> 
+ <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">       
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Department of Public Grievances, Government of India</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" media="all" href="/css/styles.css" th:href="@{/css/styles.css}" type="text/css"/>
+        <link rel="stylesheet" media="all" href="/css/modal.css" th:href="@{/css/modal.css}" type="text/css"/>
+        
+        <!-- Main CSS-->
+        <link href="/css/main.css" th:href="@{css/main.css}"rel="stylesheet" media="all">
+        <link rel="stylesheet" href="css/captcha.css" th:href="@{css/captcha.css}">
+       
+ </head>
+ 
+         <nav class="navbar navbar-expand-lg navbar-dark" style="height: 25px; background-color:rgb(52, 76, 127);">
+            <div class="container fluid">
+                <h6 style="color: white;font-size: small;"> Government of India | Ministry of Personnel, Public Grievances</h6>
+               &nbsp;&nbsp;&nbsp;
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <li class="nav-item"><a class="nav-link" th:href="@{/login}">Sign in</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact us</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/}"> About us</a></li>
+                    </ul>
+                </div>
+            </div>
+         </nav>
+
+         &nbsp; &nbsp; &nbsp; &nbsp;<a href="/"><img src="images/banner.png"  height="80" width="500"  th:src="@{images/banner.png}" /></a>
+         <img class="d-block w-100" src="images/baner-cpgrams_4.jpg" style="height: 220px;" alt="First slide">
+
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(0, 51, 102);">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a aria-current="page" class="nav-link active" th:href="@{/index}">Lodge Grievance</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!"th:href="@{/track}">Track Grievance</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!"th:href="@{/contact}">Contact us</a></li>
+                
+              </div>
+            </div>
+          </nav>
+<body>
+          <!-- Page Content-->
+         <div class="container px-2 px-lg-4">   <br><br>
+            <p style="text-align: left;color: rgb(26, 38, 63);font-size: small;"><b><i>All fields marked as <span style="color: red;font-size: medium;"> * </span>is mandatory</i></b></p>
+        </div>          
+    <div class="container-fluid">
+    	<div class="row">  
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card card-4">
+              <div class="card-body">
+                  <div>
+                    <h1><b><p style="color: rgb(26, 38, 63);font-size:21px">GRIEVANCE REGISTRATION FORM</p></b></h1>
+                  </div> <br><br>
+
+                    <form  class="needs-validation" th:action="@{/addPg}" method="post" th:object="${RegData}" enctype="multipart/form-data">
+                      <div class = "row" id="form-data-list">
+                        
+                          <div class="col-12 col-md-6">
+
+                              <div class="form-group">
+                                <label class="required"><b>Name</b></label>
+                                  <input type="text" class="form-control" id="inputname" name="name"  th:classappend="${#fields.hasErrors('name')?'is-invalid':''}" required >
+                                    <div class="invalid-feedback"  th:each="e : ${#fields.errors('name')}" th:text="${e}"></div>
+                              </div>
+                              <br>                        
+                              <div class="form-group">
+                                <label class="required"><b>Mobile</b></label>
+                                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" class="form-control" id="mobile" name="mobile" th:value="${RegData.mobile}" th:classappend="${#fields.hasErrors('mobile')?'is-invalid':''}" required>
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('mobile')}" th:text="${e}"></div>
+                              </div>                      
+                                <br>
+                              <div class="form-group">
+                                  <label class="required"><b>Email</b></label>
+                                  <input type="text" class="form-control" id="inputEmail4" name="email" th:value="${RegData.email}" th:classappend="${#fields.hasErrors('email')?'is-invalid':''}" required>
+                                  <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}"></div>
+                              </div>
+                              <br>
+                              <label class="required"><b>Gender</b></label>
+                              <br>
+                              <div class="form-group">
+                                <span th:each="gen: ${gender_value}"> 
+                                  <div  class="form-check form-check-inline">
+                                    <input  type="radio" th:field="*{gender}" required th:value="${gen}" class="form-check-input"/> 
+                                    <label class="form-check-label" th:text="${gen}">gender</label>
+                                  </div>
+                                </span>
+                              </div>
+                              <p  class="errors" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>
+                              <br>                                         
+                              <div class="form-group">
+                                <label class="required"><b>Pincode</b></label>
+                                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="6" class="form-control" id="pincode" name="pincode" th:value="${RegData.pincode}" th:classappend="${#fields.hasErrors('pincode')?'is-invalid':''}" required>
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('pincode')}" th:text="${e}"></div>
+                              </div>
+                        </div>    
+                        
+                          <div class="col-12 col-md-6">
+                            <div class="form-row">
+                     
+                                <div class="form-group col-md-6">
+                                   <label class="required"><b>State</b></label>
+                                  <select id="state" required name="state" class="form-control" th:classappend="${#fields.hasErrors('state')?'is-invalid':''}" >
+                                  </select>
+                                  <div class="invalid-feedback" th:each="e : ${#fields.errors('state')}" th:text="${e}"></div>
+                                </div>
+                                    <br>
+                                <div class="form-group col-md-6">
+                                  <label class="required"><b>District</b></label>
+                                  <select id="district" required name="district" class="form-control" th:classappend="${#fields.hasErrors('district')?'is-invalid':''}">
+                                  </select>
+                                  <div class="invalid-feedback" th:each="e : ${#fields.errors('district')}" th:text="${e}"></div>
+                                </div>
+                             </div>
+                             
+                             <br>
+                              <div class="form-group">
+                                <label class="required"><b>Department</b></label>
+                                  <input type="text" class="form-control" required id="inputfield" name="category" th:value="${RegData.category}" th:classappend="${#fields.hasErrors('category')?'is-invalid':''}" >
+                                    <div class="invalid-feedback" th:each="e : ${#fields.errors('category')}" th:text="${e}"></div>
+                              </div>
+                                  <br>
+                              <div class="form-group">
+                                <label class="required"><b>Text of Grievance</b><i style="font-size: 11px;"> (Maximum of 1000 characters)</i></label> 
+                                  <textarea class="form-control" id="grievance" rows="5" cols="5" name="grievance" th:value="${RegData.grievance}" th:classappend="${#fields.hasErrors('grievance')?'is-invalid':''}" required></textarea> 
+                                    <div class="invalid-feedback" th:each="e : ${#fields.errors('grievance')}" th:text="${e}"></div>
+                              </div>
+                                  <br>
+                              <div class="form-group">
+                                <label class="form-label"><b>Attach any document(if any)</b></label>
+                              
+                                  <div class="custom-file">
+                                    <input type="file" name="files" accept="application/pdf" id="file" onchange="FileValidation()">
+                                    <label ><p style="color:rgb(69, 72, 73);font-size:12px">Choose file<i>(.pdf ,size upto 1MB)</i></p></label>
+                                  </div> 
+                                <br><br>
+                              </div>
+                            
+                              <label class="required"><b>Enter the captcha</b></label>
+                              <div class="col col-sm-3 col-md-3 col-lg-3">
+                                <div class="wrapper">
+                                    <div class="captcha-area">
+                                      <div class="captcha-img">
+                                        <img src="images/captcha.jfif" th:src="@{images/captcha.jfif}" >
+                                        <span class="captcha"></span>
+                                      </div>
+                                      <div class="reload-btn"><img width="30px" height="30px" src="images/Refresh.png" th:src="@{images/Refresh.png}"></div>
+                                    </div>
+                                    <div class="input-area">
+                                          <input required type="text" placeholder="Enter captcha" maxlength="6" spellcheck="false">
+                                          <button class="check-btn">Check</button>
+                                    </div>
+                                    <div class="status-text"></div>
+                                </div>
+                              </div>
+                           </div>
+                              <div class="row">
+                                <div class="col col-sm-12 col-md-6 col-lg-6">
+                                  <div class="form-group form-check">
+                                    <input  class="form-check-input"  onclick="enable()" type="checkbox"  id="exampleCheck1"  required>
+                                      <label class="form-check-label" for="exampleCheck1">I agree that the above details are true to my knowledge</label>
+                                      <label class="required"></label>
+                                      <div id="invalidCheck3Feedback" class="invalid-feedback">
+                                        You must agree before submitting.
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <br>
+                            
+                       </div> 
+                       <center>
+                        <button  disabled="true" id="btn" class="btn btn-radius-1 btn--green" data-toggle="modal" data-target="#demoModal" type="submit">Submit</button>
+                      &nbsp; &nbsp;
+                      <button class="btn btn-radius-1 btn--blue" type="reset">Cancel</button>
+                      </center>
+                      <br>
+                  </form>
+            	  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+       <br>
+       
+               <div class="modal fade" id="demoModal">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h2 class="modal-title">Alert !!</h2>
+                              <button type="button" class="close" data-dismiss="modal">
+                                  <span>&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <p>Grievance Successfully Submitted</p>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary"  data-dismiss="modal">Confirm</button>
+                          </div>
+                      </div>
+                  </div>
+              </div> 
+              
+               <div class="modal fade" id="demoModal2">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h2 class="modal-title">Alert !!</h2>
+                              <button type="button" class="close" onclick="$('#demoModal2').modal('hide');">
+                                  <span>&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <p>Please Fill All Fields</p>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary"  onclick="$('#demoModal2').modal('hide');">Confirm</button>
+                          </div>
+                      </div>
+                  </div>
+              </div> 
+              
+             
+<!-- partial -->
+<script src='https://unpkg.com/dynamics.js@1.1.5'></script>
+      <script src="modal.js" th:src="@{js/modal.js}"></script>
+      <script src="script.js" th:src="@{js/script.js}"></script>
+      <script src="preview.js" th:src="@{js/preview.js}"></script>
+      <script src="states.js" th:src="@{js/states.js}"></script>
+
+      </div>
+
+        <!-- Footer-->
+           <div class="container-fluid">
+                 <div class = "row" style="background-color:rgb(0, 51, 102);height: 100px;">
+                          <center>
+                            &nbsp;  <a href="https://gandhi.gov.in/" target="_blank"><img src="images/gandhi.jfif" width="150" height="50"  th:src="@{images/gandhi.jfif}" style="padding-top: 8px;" /></a>
+                            &nbsp;  <a href="https://digitalindia.gov.in/" target="_blank"><img src="images/dig.png" width="150" height="50"  th:src="@{images/dig.png}" style="padding-top: 8px;" /></a>
+                            &nbsp;  <a href="https://www.nic.in/" target="_blank"><img src="images/nic.png" width="150" height="50"  th:src="@{images/nic.png}" style="padding-top: 8px;" /></a>
+                            &nbsp;  <a href="https://www.india.gov.in/" target="_blank"><img src="https://www.india.gov.in/sites/all/themes/adaptivetheme/npi_adaptive/images/linktousbanner/banner4.jpg" width="150" height="50" th:src="@{https://www.india.gov.in/sites/all/themes/adaptivetheme/npi_adaptive/images/linktousbanner/banner4.jpg}" style="padding-top: 8px;"/></a>
+                          </center>
+               </div>
+               <div class = "row" style="background-color:rgb(0, 51, 102)">
+                <center><p style="font-size: small;color:white;">This site is designed and developed by National Informatics Centre, Government of India and owned by Department of Public Grievances.</p></center>
+              </div>
+              <div class = "row" style="background-color:rgb(0, 77, 153);">
+                <center><p style="font-size:10px;color:white;">Disclaimer | Version, Copyright © 2022 </p></center>
+             </div>
+            </div>
+                  <script> 
+    
+         document.getElementById("exampleCheck1").onclick = function() {
+  let allAreFilled = true;
+  document.getElementById("form-data-list").querySelectorAll("[required]").forEach(function(i) {
+    if (!allAreFilled) return;
+    if (i.type === "radio") {
+      let radioValueCheck = false;
+document.getElementById("form-data-list").querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
+        if (r.checked) radioValueCheck = true;
+      })
+      allAreFilled = radioValueCheck;
+      return;
+    }
+    if (!i.value) { 
+	
+	allAreFilled = false;  
+	
+	return; }
+  })
+  if (!allAreFilled) {
+    $('#demoModal2').modal('show');
+    document.getElementById("exampleCheck1").checked = false;
+  }
+  else
+  {
+	var exampleCheck1 = document.getElementById("exampleCheck1");
+            var btn = document.getElementById("btn");
+   
+            if(exampleCheck1.checked){
+                btn.removeAttribute("disabled");
+            }
+            else{
+                btn.disabled ="true";
+            } 
+   
+}
+};
+            
+            
+        
+    </script> 
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        
+      
+    
+        <script type="text/javascript" src="js/scripts.js" th:src="@{/js/scripts.js}"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+          $('#file').on('change', function() {
+   
+              const size =
+                 (this.files[0].size / 1024 / 1024).toFixed(1);
+   
+              if (size > 1) {
+                  alert("File must be less than or equal to 1 MB");
+              } 
+          });
+      </script>
+
+      <script language="javascript">
+        populateStates("state", "district"); 
+      </script>
+      
+
+
+ </body>
+</html>
